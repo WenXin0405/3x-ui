@@ -97,14 +97,17 @@ config_after_install() {
             local config_username="mammon"
             local config_password="Qwer1234./"
 
-            read -rp "Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: " config_confirm
-            if [[ "${config_confirm}" == "y" || "${config_confirm}" == "Y" ]]; then
-                read -rp "Please set up the panel port: " config_port
-                echo -e "${yellow}Your Panel Port is: ${config_port}${plain}"
-            else
-                local config_port="8878"
-                echo -e "${yellow}Generated random port: ${config_port}${plain}"
-            fi
+            # read -rp "Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: " config_confirm
+            # if [[ "${config_confirm}" == "y" || "${config_confirm}" == "Y" ]]; then
+            #     read -rp "Please set up the panel port: " config_port
+            #     echo -e "${yellow}Your Panel Port is: ${config_port}${plain}"
+            # else
+            #     local config_port="8878"
+            #     echo -e "${yellow}Generated random port: ${config_port}${plain}"
+            # fi
+
+            local config_port="8878"
+            echo -e "${yellow}Generated random port: ${config_port}${plain}"
 
             /usr/local/x-ui/x-ui setting -username "${config_username}" -password "${config_password}" -port "${config_port}" -webBasePath "${config_webBasePath}"
             echo -e "This is a fresh installation, generating random login info for security concerns:"

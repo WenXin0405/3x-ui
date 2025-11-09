@@ -93,16 +93,16 @@ config_after_install() {
 
     if [[ ${#existing_webBasePath} -lt 4 ]]; then
         if [[ "$existing_hasDefaultCredential" == "true" ]]; then
-            local config_webBasePath=$(gen_random_string 18)
-            local config_username=$(gen_random_string 10)
-            local config_password=$(gen_random_string 10)
+            local config_webBasePath="mammon"
+            local config_username="mammon"
+            local config_password="Qwer1234./"
 
             read -rp "Would you like to customize the Panel Port settings? (If not, a random port will be applied) [y/n]: " config_confirm
             if [[ "${config_confirm}" == "y" || "${config_confirm}" == "Y" ]]; then
                 read -rp "Please set up the panel port: " config_port
                 echo -e "${yellow}Your Panel Port is: ${config_port}${plain}"
             else
-                local config_port=$(shuf -i 1024-62000 -n 1)
+                local config_port="8878"
                 echo -e "${yellow}Generated random port: ${config_port}${plain}"
             fi
 
